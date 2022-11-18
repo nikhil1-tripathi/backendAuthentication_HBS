@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <style>
+       
+       #container{
+        display: grid;
+        grid-template-columns:  24% 24% 24% 24%;
+        background-color: whitesmoke;
+        margin-top: 30px;
+        justify-items: auto;
+        justify-content: space-evenly;
+        grid-gap: 20px;
+        /* height: 500px; */
+       
+    }
+    #box1{
+        background-color: palegoldenrod;
+        margin: auto;
+        width: 240px;
+        box-shadow: 10px 10px 5px palevioletred;
+        border-radius: 20px;
+        /* height: fit-content; */
+        
+    }
+    img{
+        width:100%;
+        height: 90%;
+        border-radius: 50px;
+    }
+    button{
+        height: 30px;
+        width: 150px;
+        background-color: black;
+        color: white;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    #box1 > h4 {
+       margin-left: 55px;
+      
+    }
+    
+    #box1 > h2 {
+       margin-left: 15px;
+       text-align: center;
+       color: palevioletred;
+       font-style: italic;
+    }
+   
+
+    #Youtubediv > a{
+        margin-left: 55px;
+        color: black;
+        font-size: 1em;
+        font-weight: bold;
+        margin-bottom: 6px;
+        font-style: italic;
+    }
+    #h1{
+     margin-top: 10px;
+      margin-left: 570px;
+      color: steelblue;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-style: italic;
+      border-bottom: 1px solid gray;
+      width: 180px;
+
+    }
+    #box1:hover{
+        width: 270px;
+        
+    }
+    #h1:hover{
+       font-size: 44px;
+       color: orangered;
+       border: none;
+       width: 250px;
+    }
+   
+   
+       
+    </style>
+     <link rel="stylesheet" type="text/css" href="Navbar.css">   </link>
+</head>
+
+<body>
+    {{>Navbar}}
+           <h1 id="h1"> WISHLIST </h1>
+   
+</body>
+
+</html>
+<script>
+    
+    var cartItems = JSON.parse(localStorage.getItem("cartItems"));
+    var body = document.querySelector("body");
+    var box = document.createElement("div");
+    box.setAttribute("id", "container");
+    body.append(box);
+    showProducts();
+
+    function showProducts() {
+        cartItems.map(function (output){
+      let div = document.createElement("div")
+            div.setAttribute("id", "box1")
+
+      let img = document.createElement("img");
+      img.src = output.strMealThumb;
+
+      let title = document.createElement("h2")
+      title.textContent = output.strMeal;
+
+      let category = document.createElement("h4");
+      category.textContent = "Category : " + output.strCategory;
+
+      let price = document.createElement("h4");
+      price.textContent = "Price : " + Math.floor( Math.random()*2000);
+
+      let area = document.createElement("h4");
+      area.textContent = "Area : " + output.strArea;
+      
+      let Youtubediv = document.createElement("div")
+      Youtubediv.setAttribute("id", "Youtubediv")
+
+      let YoutubeLink = document.createElement("a")
+      YoutubeLink.href = output.strYoutube
+      YoutubeLink.textContent = "Receipe : Youtube Link"
+      
+     
+        Youtubediv.append(YoutubeLink)
+      div.append(img,title,category,price,area,Youtubediv)
+      box.append(div);
+     });
+    }
+</script>

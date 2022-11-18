@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="Navbar.css">   </link>
+</head>
+    <style>
+       
+     #box{
+        display: grid;
+        grid-template-columns:  20% 20% 20% 20%;
+        background-color: whitesmoke;
+        margin-top: 30px;
+        justify-items: auto;
+        justify-content: space-evenly;
+        grid-gap: 20px;
+        /* height: 500px; */
+       
+    }
+    #box1{
+        background-color: palevioletred;
+        margin: auto;
+        box-shadow: 10px 10px 5px palegoldenrod;
+        border-radius: 20px;
+        
+    }
+    #box1:hover{
+        width: 270px;
+        /* background-color: steelblue; */
+    }
+    img{
+        width:100%;
+        height: 90%;
+        border-radius: 50px;
+    }
+    
+    button{
+        height: 30px;
+        width: 150px;
+        background-color: black;
+        color: white;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    #box1 > h4 {
+       margin-left: 55px;
+    }
+    
+    #box1 > h2 {
+       /* margin-left: 15px; */
+       text-align: center;
+       color: palegoldenrod;
+       font-style: italic;
+    }
+    #box1 > button {
+        margin-left: 56px;
+        margin-top: 15px;
+        background-color: orangered;
+
+    }
+
+    #Youtubediv > a{
+        margin-left: 55px;
+        color: black;
+        font-style: italic;
+        font-size: 1em;
+        font-weight: bold;
+        margin-top: 0px;
+        
+    }
+
+    #h1{
+     margin-top: 10px;
+      margin-left: 570px;
+      color: steelblue;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-style: italic;
+      border-bottom: 1px solid gray;
+      width: 120px;
+
+    }
+    #h1:hover{
+       font-size: 44px;
+       color: orangered;
+    }
+
+   </style>
+<body>
+             {{>Navbar}}
+           <h1 id="h1"> SECUREDdfdfgfgfthfghfgDDDDD</h1>
+            <div id="box"></div>
+
+</body>
+</html>
+ <script>
+     var cartArray = JSON.parse(localStorage.getItem("cartItems")) || [];
+      var box = document.getElementById("box");
+    
+       async function searchFood(){     
+    
+    let response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=chicken`)
+   let data = await response.json();
+   showFood(data.meals)
+   console.log(data.meals);
+//    alert("sadfg")
+    }
+      function showFood(task){
+     task.map(function (output){
+      let div = document.createElement("div")
+            div.setAttribute("id", "box1")
+
+      let img = document.createElement("img");
+      img.src = output.strMealThumb;
+
+      let title = document.createElement("h2")
+      title.textContent = output.strMeal;
+
+      let category = document.createElement("h4");
+      category.textContent = "Category : " + output.strCategory;
+
+      let price = document.createElement("h4");
+      price.textContent = "Price : " + Math.floor( Math.random()*2000);
+
+      let area = document.createElement("h4");
+      area.textContent = "Area : " + output.strArea;
+      
+      let Youtubediv = document.createElement("div")
+      Youtubediv.setAttribute("id", "Youtubediv")
+
+      let YoutubeLink = document.createElement("a")
+      YoutubeLink.href = output.strYoutube
+      YoutubeLink.textContent = "Receipe : Youtube Link"
+      
+      var btn = document.createElement("button");
+        btn.textContent = "ADD TO CART"
+        btn.addEventListener("click", function(){
+            addToCart(output);
+        }); 
+        Youtubediv.append(YoutubeLink)
+      div.append(img,title,category,price,area,Youtubediv,btn)
+      box.append(div);
+     });
+      
+      function addToCart(output){
+        cartArray.push(output);
+        localStorage.setItem("cartItems", JSON.stringify(cartArray));
+        window.location.href = "Wishlist";
+    }
+}
+searchFood()
+ </script>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {{>navbar}}
+    <h1>HELLO FROM THE AUTHENTICATION BROTHER</h1>
+</body>
+</html> --}}

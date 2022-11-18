@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="Navbar.css">   </link>
+
+  </head>
+  <style>
+     #maindiv {
+        width: 900px;
+        height: 300px;
+        border: 2px solid transparent;
+        margin: 200px 100px 100px 100px;
+        font-style: italic;
+      }
+      .div {
+        border: 2px solid transparent;
+        display: inline-block;
+        width: 380px;
+        height: 200px;
+        float: left;
+        font-style: italic;
+      }
+      .topdiv {
+        border: 2px solid transparent;
+        width: 1200px;
+        height: 90px;
+        font-style: italic;
+      }
+      .input {
+        display: block;
+        margin-top: 20px;
+        border: none;
+        border-bottom: 1px solid black;
+        font-style: italic;
+        outline: none;
+      }
+      .button {
+        background-color: black;
+        width: 250px;
+        height: 25px;
+        color: white;
+        margin-top: 18px;
+        font-style: italic;
+      }
+      .p {
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.8px;
+        color: gray;
+        font-style: italic;
+        font-family: Arial, Helvetica, sans-serif;
+
+      }
+      .search {
+        float: right;
+        font-style: italic;
+        margin-right: 100px;
+      }
+      
+      .p1 {
+        display: inline-block;
+        margin-right: 5px;
+        font-style: italic;
+        font-size: 8px;
+        line-height: 16px;
+        letter-spacing: 0.8px;
+        color: gray;
+        font-family: Arial, Helvetica, sans-serif;
+
+        margin-top: 10px;
+      }
+      a:hover{
+        font-size: 8px !important;
+      }
+    
+  </style>
+  <body>
+         {{>Navbar}}
+        <div id="maindiv">
+           <form action="/login" method="POST">
+          <div class="div">
+            <h2 >LOG IN</h2>
+            <div style="border: none; border-bottom: black"></div>
+            
+            <input name="email" id="email" class="input" type="email" placeholder="E-MAIL" />
+            <input name="password" id="password" class="input" type="text" placeholder="PASSWORD" />
+            <a href="signin" class="p1">HAVE YOU FORGETTON YOUR PASSWORD?</a>
+
+            <button type="submit" id="btn" class="button">LOG IN</button>
+            </form>
+          </div>
+
+
+
+          <div style="float: right" class="div">
+            <h2>REGISTER</h2>
+            <p class="p">
+              IF YOU STILL DON'T HAVE A  ACCOUNT, USE THIS OPTION TO ACCESS
+              THE REGISTRATION FORM.
+            </p>
+            <p class="p">
+              BY GIVING US YOUR DETAILS,PURCHASING IN OUR FOOD APP WILL BE FASTER AND
+              AN ENJOYABLE EXPERIENCE.
+            </p>
+        <a href="signin"> <button style="margin-top: 6px"  id="button" class="button">REGISTER</button></a>
+          </div>
+        </div>
+
+  </body>
+ </html>
+
+ 
+ 
+  

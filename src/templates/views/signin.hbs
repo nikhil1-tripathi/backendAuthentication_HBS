@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="Navbar.css">   </link>
+  </head>
+  <style>
+    #sign_in{
+      background-color: white;
+      margin-left: 30px;
+      width: 925px;
+      height: 641px;
+      font-size: 13px;
+      text-align: start;
+      font-style: italic;
+      line-height: 16.003px;
+      letter-spacing: 0.3px;
+
+    }
+
+    #heading{
+      font-size: 22px;
+      line-height: 28px;
+      font-style: italic;
+      border-bottom: 0.7px solid gray;
+      width: 240px;
+      letter-spacing: 0.8px;
+      font-family: Arial, Helvetica, sans-serif;
+      margin-bottom: 25px;
+      margin-top: 30px;
+    }
+    #signin_1{
+     width: 777px;
+     height: 577px;
+     font-size: 13px;
+     font-style: italic;
+     font-family: Arial, Helvetica, sans-serif;
+     line-height: 16.003px;
+     letter-spacing: 0.3px;
+
+    }
+    #checkbox{
+      width: 807px;
+      height: 14px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      font-style: italic;
+      line-height: 16.003px;
+      letter-spacing: 0.3px;
+
+    }
+    .signin_box{
+      width: 406px;
+      height: 41px;
+      margin-top: 24px;
+      line-height: 13.541px;
+      letter-spacing: 0.4px;
+      /* border: 1px solid black; */
+      border:none;
+      font-style: italic;
+      border-bottom: 0.5px solid gray;
+      outline: none;
+      font-size: 11px;
+      line-height: 13.541px;
+      letter-spacing: 0.4px;
+        margin-right: 15px;
+      /* margin-bottom: px; */
+    }
+
+    .below{
+      font-size: 10px;
+      color: gray;
+      margin-top: 15px;
+      width: 300px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .below > label {
+      width: 14px;
+      height: 14px;
+      font-style: italic;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #button{
+      background-color: black;
+      color: white;
+      font-style: italic;
+      font-size: 12px;
+      text-align: center;
+      width: 406px;
+      height: 34px;
+      margin-top: 30px;
+
+
+    }
+    
+  </style>
+  <body>
+    
+  
+   {{>Navbar}}
+
+   <div id="sign_in">
+    <h1 id="heading"> PERSONAL DETAILS </h1>
+     <form action="/signin" method="POST">
+    <div id="sign_in_1">
+
+
+
+   
+    <div id="checkbox">
+    <input type = "checkbox" id="check"/>
+     <lable for = "check" >HOME</lable>
+     <input type = "checkbox" id="check"/>
+     <lable for = "check" >COMPANY</lable>
+    </div>
+   <div> 
+    <input name="email" class="signin_box" id="email" type="email" placeholder="EMAIL">
+  <!-- </div> -->
+  <div  >
+    <!-- <label for="email">email</label> -->
+    <input name="password" class="signin_box" type="password" id="password" placeholder="PASSWORD">
+    <input name="confirmPassword" class="signin_box" type="password" id="repeatPassword" placeholder="REPEAT PASSWORD"> 
+  </div>
+  <div >
+    <input name="name"  class="signin_box" type="text" id="name" placeholder="NAME">
+    <input name="pincode"  class="signin_box" type="text" id="pincode" placeholder="PINCODE"> 
+
+  </div>
+  <div >
+    <input name = "address" class="signin_box" id="address" type="text" placeholder="ADDRESS">
+    <input name="city"  class="signin_box" type="text" placeholder="CITY" id="city" type="text">
+  </div>
+  <div >
+    <input name="locality" class="signin_box" id="locality" type="text" placeholder="LOCALITY">
+    <input name="landmark"  class="signin_box" type="text" placeholder="LANDMARK" id="landamark" type="text">
+  </div>
+  <div>
+    <input name="phone" class="signin_box" id="phoneNumber" type="number" placeholder="PHONE NUMBER">
+  </div>
+  <div class="below" >
+    <input type = "checkbox" />
+     <lable for = "check" >I WISH TO RECEIVE THE ZARA NEWS ON MY GMAIL</lable>
+     <input type = "checkbox" />
+     <lable for = "check" > I ACCEPT THE PRIVACY STATMENT</lable>
+    </div>
+    <div  class="below">
+     
+    </div>
+</form>
+<div>
+<button id="button">CREATE ACCOUNT</button>
+</div>
+  </body>
+</html>
+
+</script>
